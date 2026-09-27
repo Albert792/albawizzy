@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Simu - SimuKwaMkopo</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold text-primary fs-3" href="home.html">
+            SimuKwaMkopo
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link active" href="phone.html">Simu</a></li>
+                <li class="nav-item"><a class="nav-link" href="how-it-works.html">Jinsi Inavyofanya Kazi</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- Hero -->
+<section class="bg-primary text-white py-5">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold">Simu Zinazopatikana</h1>
+        <p class="lead mt-3 mb-0">Chagua simu unayoipenda na uombe kwa mpango wa malipo.</p>
+    </div>
+</section>
+
+
+<!-- Phones grid -->
+<section class="py-5">
+    <div class="container">
+
+        <div id="phonesGrid" class="row g-4">
+            <!-- Cards are rendered here by JavaScript, from phones-data.js -->
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-white pt-5">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+                <h3 class="fw-bold">SimuKwa<span class="text-primary">Mkopo</span></h3>
+                <p class="text-secondary mt-3">
+                    Pata simu yako kwa mpango wa malipo unaokufaa.
+                    Chagua simu unayoipenda na lipa kidogo kidogo.
+                </p>
+                <div class="mt-3">
+                    <a href="#" class="btn btn-primary rounded-circle me-2">f</a>
+                    <a href="#" class="btn btn-primary rounded-circle me-2">◎</a>
+                    <a href="#" class="btn btn-primary rounded-circle me-2">☏</a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="fw-bold mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="home.html" class="text-secondary text-decoration-none">Home</a></li>
+                    <li class="mb-2"><a href="about.html" class="text-secondary text-decoration-none">About Us</a></li>
+                    <li class="mb-2"><a href="phones.html" class="text-secondary text-decoration-none">Simu</a></li>
+                    <li class="mb-2"><a href="how-it-works.html" class="text-secondary text-decoration-none">Jinsi Inavyofanya Kazi</a></li>
+                    <li><a href="contact.html" class="text-secondary text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="fw-bold mb-3">Huduma Zetu</h5>
+                <ul class="list-unstyled text-secondary">
+                    <li class="mb-2">✓ Simu za Android</li>
+                    <li class="mb-2">✓ Simu za iPhone</li>
+                    <li class="mb-2">✓ Simu za Bajeti</li>
+                    <li class="mb-2">✓ Malipo ya Miezi</li>
+                    <li>Msaada wa Wateja</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="fw-bold mb-3">Wasiliana Nasi</h5>
+                <p class="text-secondary mb-2">📍 Dar es Salaam, Tanzania</p>
+                <p class="text-secondary mb-2">📞 +255 700 000 000</p>
+                <p class="text-secondary mb-3">✉️ info@simukwamkopo.co.tz</p>
+                <a href="contact.html" class="btn btn-primary">Omba Simu Sasa →</a>
+            </div>
+
+        </div>
+
+        <div class="border-top border-secondary mt-5 py-4 d-flex flex-column flex-md-row justify-content-between text-secondary">
+            <span>&copy; 2026 SimuKwaMkopo. All Rights Reserved.</span>
+            <span>Simu Bora • Malipo Rahisi • Huduma Bora</span>
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Shared phone data (read by admin.html too) -->
+<script src="phones-data.js"></script>
+
+<script>
+    function renderPhones() {
+        const phones = getPhones();
+        const grid = document.getElementById("phonesGrid");
+
+        if (!phones.length) {
+            grid.innerHTML = '<p class="text-center text-secondary">Hakuna simu kwa sasa. Tafadhali rudi baadaye.</p>';
+            return;
+        }
+
+        grid.innerHTML = phones.map(p => `
+            <div class="col-md-4">
+                <div class="card phone-card h-100 border-0 shadow">
+                    <div class="phone-image-container">
+                        <img src="${p.image}" class="card-img-top phone-image"
+                             alt="${p.name}" onerror="this.src='images/phone.png'">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">${p.name}</h3>
+                        <p class="card-text text-secondary">${p.description || ""}</p>
+                        <p class="card-text fw-bold text-primary mb-1">
+                            Kuanzia ${formatTsh(p.deposit)} deposit
+                        </p>
+                        <p class="card-text small text-secondary">
+                            ${formatTsh(p.monthly)}/mwezi kwa miezi ${p.months}
+                        </p>
+                        <a href="contact.html" class="btn btn-primary">Omba Sasa</a>
+                    </div>
+                </div>
+            </div>
+        `).join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", renderPhones);
+</script>
+
+</body>
+</html>
